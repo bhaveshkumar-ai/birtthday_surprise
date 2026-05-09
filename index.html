@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love ❤️</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff4e8a,#6a11cb);
+      padding:20px;
+      color:white;
+    }
+
+    .container{
+      width:100%;
+      max-width:420px;
+      background:rgba(255,255,255,0.12);
+      backdrop-filter:blur(12px);
+      border-radius:25px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 0 25px rgba(0,0,0,0.3);
+      animation:floatBox 4s ease-in-out infinite;
+      z-index:2;
+    }
+
+    @keyframes floatBox{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-8px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    h1{
+      margin-bottom:15px;
+      font-size:2rem;
+    }
+
+    h2{
+      margin-top:10px;
+      color:#ffe6f2;
+    }
+
+    p{
+      margin-top:20px;
+      line-height:1.8;
+      font-size:1rem;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      margin-top:14px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      font-size:1rem;
+      text-align:center;
+    }
+
+    button{
+      margin-top:20px;
+      padding:14px 25px;
+      border:none;
+      border-radius:14px;
+      background:white;
+      color:#ff2d75;
+      font-size:1rem;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#ffe6f0;
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .heart{
+      position:absolute;
+      color:white;
+      animation:floatHeart linear forwards;
+      z-index:1;
+    }
+
+    @keyframes floatHeart{
+      0%{
+        transform:translateY(0);
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-110vh);
+        opacity:0;
+      }
+    }
+
+    .glow{
+      text-shadow:
+      0 0 10px #fff,
+      0 0 20px #ff8ac7,
+      0 0 40px #ff4ea3;
+    }
+
+    @media(max-width:500px){
+
+      h1{
+        font-size:1.7rem;
+      }
+
+      p{
+        font-size:0.95rem;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- PAGE 1 -->
+    <div id="page1">
+
+        <h1>🎂 Secret Birthday Portal ❤️</h1>
+
+        <p>
+          Only one special person can unlock this surprise ✨
+        </p>
+
+        <input type="text" id="name" placeholder="Enter Your Beautiful Name ❤️">
+
+        <input type="date" id="dob">
+
+        <button onclick="unlockWish()">
+            Unlock Surprise ❤️
+        </button>
+
+    </div>
+
+    <!-- PAGE 2 -->
+    <div id="page2" class="hidden">
+
+        <h1 class="glow">Happy Birthday ❤️</h1>
+
+        <h2 id="showName"></h2>
+
+        <p>
+            You are the most beautiful part of my life 💖<br><br>
+
+            Your smile makes everything brighter,
+            your voice feels like peace,
+            and your love means the world to me 🌸
+        </p>
+
+        <button onclick="nextMessage()">
+            Click Here ❤️
+        </button>
+
+    </div>
+
+    <!-- PAGE 3 -->
+    <div id="page3" class="hidden">
+
+        <h1>💌 One More Thing...</h1>
+
+        <p>
+            Out of all the people in this world...<br><br>
+
+            I’m thankful that life brought YOU to me ❤️<br><br>
+
+            Every moment with you feels magical,
+            every conversation feels comforting,
+            and every memory with you stays in my heart forever ✨
+        </p>
+
+        <button onclick="finalMessage()">
+            Last Surprise 🎁
+        </button>
+
+    </div>
+
+    <!-- PAGE 4 -->
+    <div id="page4" class="hidden">
+
+        <h1 class="glow">❤️ Forever & Always ❤️</h1>
+
+        <p>
+            No matter what happens in life...<br><br>
+
+            I will always choose you 🌙❤️<br><br>
+
+            Every 11th May reminds me that
+            the most beautiful soul in my life was born today ✨<br><br>
+
+            Happy Birthday My Love ❤️
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+function unlockWish(){
+
+    const name = document.getElementById("name").value.trim();
+
+    const dob = document.getElementById("dob").value;
+
+    if(name === ""){
+        alert("Enter your beautiful name ❤️");
+        return;
+    }
+
+    if(dob === "2006-05-11"){
+
+        document.getElementById("page1").classList.add("hidden");
+
+        document.getElementById("page2").classList.remove("hidden");
+
+        document.getElementById("showName").innerText = name + " ❤️";
+
+        createHearts();
+
+    }
+
+    else{
+
+        alert("Oops ❤️ Wrong birthday date!");
+
+    }
+
+}
+
+function nextMessage(){
+
+    document.getElementById("page2").classList.add("hidden");
+
+    document.getElementById("page3").classList.remove("hidden");
+
+}
+
+function finalMessage(){
+
+    document.getElementById("page3").classList.add("hidden");
+
+    document.getElementById("page4").classList.remove("hidden");
+
+}
+
+function createHearts(){
+
+    setInterval(()=>{
+
+        const heart = document.createElement("div");
+
+        heart.classList.add("heart");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random()*100 + "vw";
+
+        heart.style.bottom = "-20px";
+
+        heart.style.fontSize = (Math.random()*20 + 15) + "px";
+
+        heart.style.animationDuration = (Math.random()*3 + 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },5000);
+
+    },300);
+
+}
+
+</script>
+
+</body>
+</html>
